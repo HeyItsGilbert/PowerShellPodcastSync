@@ -7,11 +7,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      # Get the current version
-      - uses: actions/checkout@v3
       - name: Install and cache PowerShell modules
-        id: psmodulecache
-        uses: potatoqualitee/psmodulecache@v4.5
+        uses: potatoqualitee/psmodulecache@v5.2
         with:
           modules-to-cache: BluebirdPS
       - name: Publish to PSGallery
