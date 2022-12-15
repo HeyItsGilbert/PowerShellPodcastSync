@@ -12,7 +12,7 @@ jobs:
         id: export
         uses: potatoqualitee/exodus@v1.1
         with:
-          list-members: "1590287371320233986"
+          my-specific-list-names: "PowerShell Podcast"
           include-private: true
         env:
           BLUEBIRDPS_API_KEY: "${{ secrets.BLUEBIRDPS_API_KEY }}"
