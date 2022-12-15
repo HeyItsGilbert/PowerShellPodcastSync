@@ -1,0 +1,24 @@
+name: Update Twitter List
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # Get the current version
+      - uses: actions/checkout@v3
+      - name: Install and cache PowerShell modules
+        id: psmodulecache
+        uses: potatoqualitee/psmodulecache@v4.5
+        with:
+          modules-to-cache: BluebirdPS
+      - name: Publish to PSGallery
+        shell: pwsh
+        env:
+          BLUEBIRDPS_API_KEY: "${{ secrets.BLUEBIRDPS_API_KEY }}"
+          BLUEBIRDPS_API_SECRET: "${{ secrets.BLUEBIRDPS_API_SECRET }}"
+          BLUEBIRDPS_ACCESS_TOKEN: "${{ secrets.BLUEBIRDPS_ACCESS_TOKEN }}"
+          BLUEBIRDPS_ACCESS_TOKEN_SECRET: "${{ secrets.BLUEBIRDPS_ACCESS_TOKEN_SECRET }}"
+        run: ./sync.ps1 -WhatIf
