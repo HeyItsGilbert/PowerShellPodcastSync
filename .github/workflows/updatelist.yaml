@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 0 * * *"
 jobs:
-  build:
+  synctotwitter:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,7 +12,7 @@ jobs:
         uses: potatoqualitee/psmodulecache@v5.2
         with:
           modules-to-cache: BluebirdPS
-      - name: Publish to PSGallery
+      - name: Sync to Twitter
         shell: pwsh
         env:
           BLUEBIRDPS_API_KEY: "${{ secrets.BLUEBIRDPS_API_KEY }}"
