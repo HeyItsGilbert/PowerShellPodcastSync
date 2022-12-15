@@ -19,4 +19,5 @@ jobs:
           BLUEBIRDPS_API_SECRET: "${{ secrets.BLUEBIRDPS_API_SECRET }}"
           BLUEBIRDPS_ACCESS_TOKEN: "${{ secrets.BLUEBIRDPS_ACCESS_TOKEN }}"
           BLUEBIRDPS_ACCESS_TOKEN_SECRET: "${{ secrets.BLUEBIRDPS_ACCESS_TOKEN_SECRET }}"
-        run: ./sync.ps1 -WhatIf
+          BLUEBIRDPS_BEARER_TOKEN: "${{ secrets.BLUEBIRDPS_BEARER_TOKEN }}"
+        run: ./sync.ps1
