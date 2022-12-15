@@ -1,3 +1,4 @@
+Import-Module BluebirdPS
 # Podcast RSS feed URL
 $feedurl = 'https://powershellpodcast.podbean.com/feed.xml'
 # PowerShell Podcast List ID
