@@ -2,7 +2,8 @@ name: Update Twitter List
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 14 * * 1"
+    # Time is in UTC. 9am PST on Mondays.
+    - cron: "0 17 * * 1"
 jobs:
   synctotwitter:
     runs-on: windows-latest
