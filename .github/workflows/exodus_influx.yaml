@@ -3,7 +3,8 @@ name: check for new accounts
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * 1"
+    # Time is in UTC. 10am PST on Mondays.
+    - cron: "0 18 * * 1"
 jobs:
   check-exodus:
     runs-on: ubuntu-latest
