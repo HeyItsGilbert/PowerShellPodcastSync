@@ -26,8 +26,13 @@ foreach ($handle in $handles) {
   if ($handle -in $existing.UserName) {
     Write-Host "🟰 $handle is already in the list."
   } else {
-    Write-Host "➕ $handle is getting added to list."
-    $user = Get-TwitterUser -User $handle
-    Add-TwitterListMember -Id $list_id -User $user
+    try{
+      Write-Host "➕ $handle is getting added to list."
+      $user = Get-TwitterUser -User $handle
+      Add-TwitterListMember -Id $list_id -User $user
+    } 
+    catch {
+      Write-Host "Failed to add $handle"
+    }
   }
 }
